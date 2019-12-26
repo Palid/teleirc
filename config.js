@@ -1,9 +1,14 @@
 let settings = {
-  token: process.env.TELEIRC_TOKEN ||
+  token:
+    process.env.TELEIRC_TOKEN ||
     "000000000:AAAAAAaAAa2AaAAaoAAAA-a_aaAAaAaaaAA",
-  ircBlacklist: process.env.IRC_BLACKLIST ?
-    process.env.IRC_BLACKLIST.split(",") : [],
+  ircBlacklist: process.env.IRC_BLACKLIST
+    ? process.env.IRC_BLACKLIST.split(",")
+    : [],
+  // You most likely don't want to do it. Please be aware
   irc: {
+    massBots: process.env.IRC_MASS_BOTS === "true" || false,
+    massBotsPrefix: process.env.IRC_MASS_BOTS_PREFIX || "[TG]",
     server: process.env.IRC_SERVER || "irc.freenode.net",
     serverPassword: process.env.IRC_SERVER_PASSWORD || "",
     port: process.env.IRC_PORT || 6667,
@@ -21,7 +26,7 @@ let settings = {
     nickservPassword: process.env.IRC_NICKSERV_PASS || "",
     nickservService: process.env.IRC_NICKSERV_SERVICE || "",
     editedPrefix: process.env.IRC_EDITED_PREFIX || "[EDIT]",
-    maxMessageLength: Number(process.env.IRC_MAX_MESSAGE_LENGTH) || 400,
+    maxMessageLength: Number(process.env.IRC_MAX_MESSAGE_LENGTH) || 400
   },
   tg: {
     chatId: process.env.TELEGRAM_CHAT_ID || "-000000000",
@@ -29,12 +34,12 @@ let settings = {
     showActionMessage: process.env.SHOW_ACTION_MESSAGE !== "false",
     showLeaveMessage: process.env.SHOW_LEAVE_MESSAGE === "true",
     showKickMessage: process.env.SHOW_KICK_MESSAGE === "true",
-    maxMessagesPerMinute: Number(process.env.MAX_MESSAGES_PER_MINUTE) || 20,
+    maxMessagesPerMinute: Number(process.env.MAX_MESSAGES_PER_MINUTE) || 20
   },
   imgur: {
     useImgurForImageLinks: process.env.USE_IMGUR_FOR_IMAGES === "true",
-    imgurClientId: process.env.IMGUR_CLIENT_ID || "12345",
+    imgurClientId: process.env.IMGUR_CLIENT_ID || "12345"
   }
-}
+};
 
 module.exports = settings;
