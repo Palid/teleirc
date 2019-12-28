@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const dotenv = require('dotenv').config();
+const dotenv = require("dotenv").config();
 const tg = require("node-telegram-bot-api");
 const irc = require("irc");
 const TeleIrc = require("./lib/TeleIrc");
